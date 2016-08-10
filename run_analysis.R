@@ -26,7 +26,7 @@ merged <- rbind(train, test)
 pos1 <- grep("(.*)mean(.*)", label_names) #find the position of column with "mean"
 pos2 <- grep("(.*)std(.*)", label_names) #find the position of column with "std"
 totalpos <- c(pos1, pos2) #this numeric vector contains all the numbers that
-#correspond to the columns that we want
+                          #correspond to the columns that we want
 
 #susbset the dataframe based on the column number in totalpos
 merged_mstd <- merged[, totalpos]
@@ -78,4 +78,4 @@ tidy_data <- dcast(merged_melt, id + activity_names ~ variable, mean)
 tidy_data$activity <- NULL
 
 #need to output the tidy_data into a text file
-write.table(tidy_data, "./tidy_data.txt", sep = "\t")
+write.table(tidy_data, "./tidy_data.txt", sep = "\t", row.names = FALSE)
