@@ -1,7 +1,8 @@
 ####Part 1, merging training and test sets
 
-#first set the directory
-setwd("C:/Users/Kam/Desktop/Coursera/Getting and Cleaning Data/Peer Graded Assignment/UCI HAR Dataset")
+#first set the directory (you should set it to the path that I mentioned in
+#the README file)
+#setwd("C:/Users/Kam/Desktop/Coursera/Getting and Cleaning Data/Peer Graded Assignment/UCI HAR Dataset")
 
 #load the training set dataframe
 train <- read.table("./train/X_train.txt") 
@@ -25,7 +26,7 @@ merged <- rbind(train, test)
 pos1 <- grep("(.*)mean(.*)", label_names) #find the position of column with "mean"
 pos2 <- grep("(.*)std(.*)", label_names) #find the position of column with "std"
 totalpos <- c(pos1, pos2) #this numeric vector contains all the numbers that
-                          #correspond to the columns that we want
+#correspond to the columns that we want
 
 #susbset the dataframe based on the column number in totalpos
 merged_mstd <- merged[, totalpos]
